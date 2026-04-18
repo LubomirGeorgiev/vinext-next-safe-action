@@ -22,7 +22,7 @@ import {
  */
 async function handleCustomEdge(
   request: Request,
-  _env: Env,
+  env: Env,
   _ctx: ExecutionContext,
 ): Promise<Response | null> {
   const url = new URL(request.url);
@@ -59,5 +59,13 @@ export default {
     }
 
     return handler.fetch(request, env, ctx);
+  },
+
+  async queue(batch: MessageBatch, _env: Env, _ctx: ExecutionContext): Promise<void> {
+    for (const message of batch.messages) {
+      const body = message.body as { task: string, at: string, source: string };
+      const timeDiff = new Date(body.at).getTime() - new Date().getTime();
+      console.log("queue received:", JSON.stringify(body), "timeDiff:", timeDiff, "ms");
+    }
   },
 };

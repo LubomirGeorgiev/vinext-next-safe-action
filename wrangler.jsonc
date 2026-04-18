@@ -13,5 +13,20 @@
   },
   "images": {
     "binding": "IMAGES"
+  },
+  "queues": {
+    "producers": [
+      {
+        "queue": "vinext-nextjs-queue",
+        "binding": "APP_QUEUE"
+      }
+    ],
+    "consumers": [
+      {
+        "queue": "vinext-nextjs-queue",
+        "max_batch_timeout": 3,
+        "max_batch_size": 10
+      }
+    ]
   }
 }
