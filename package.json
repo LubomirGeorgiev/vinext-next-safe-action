@@ -3,34 +3,38 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "dev": "vite dev --port 3000",
+    "build": "vinext build",
+    "start": "vinext start",
     "lint": "eslint",
-    "dev:vinext": "vite dev --port 3001",
-    "build:vinext": "vite build"
+    "build:vinext": "vite build",
+    "deploy": "vinext deploy",
+    "deploy:preview": "vinext deploy --preview",
+    "cf:types": "wrangler types"
   },
   "dependencies": {
-    "next": "16.2.1",
+    "next": "16.2.3",
     "next-safe-action": "^8.2.0",
-    "react": "19.2.4",
-    "react-dom": "19.2.4",
+    "react": "19.2.5",
+    "react-dom": "19.2.5",
     "zod": "^4.3.6"
   },
   "devDependencies": {
+    "@cloudflare/vite-plugin": "^1.32.3",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@vitejs/plugin-react": "^6.0.1",
-    "@vitejs/plugin-rsc": "^0.5.21",
+    "@vitejs/plugin-rsc": "^0.5.23",
     "eslint": "^9",
-    "eslint-config-next": "16.2.1",
-    "react-server-dom-webpack": "^19.2.4",
+    "eslint-config-next": "16.2.3",
+    "react-server-dom-webpack": "^19.2.5",
     "tailwindcss": "^4",
     "typescript": "^5",
-    "vinext": "^0.0.38",
-    "vite": "^8.0.3"
+    "vinext": "^0.0.41",
+    "vite": "^8.0.8",
+    "wrangler": "^4.83.0"
   },
   "type": "module"
 }

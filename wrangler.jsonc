@@ -1,0 +1,17 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "vinext-nextjs",
+  "compatibility_date": "2026-04-18",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "main": "./worker/custom-entry.ts",
+  "assets": {
+    "directory": "dist/client",
+    "not_found_handling": "none",
+    "binding": "ASSETS"
+  },
+  "images": {
+    "binding": "IMAGES"
+  }
+}
