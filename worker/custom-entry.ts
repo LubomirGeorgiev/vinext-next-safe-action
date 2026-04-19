@@ -14,7 +14,14 @@ import {
   IMAGE_OPTIMIZATION_PATH,
 } from "vinext/server/image-optimization";
 
+import { WebSocketChat } from "./websocket-chat-do";
+
+export { WebSocketChat };
+
 // Bindings: see `worker-configuration.d.ts` (run `pnpm cf:types` after changing wrangler.jsonc).
+
+/** WebSocket upgrade for {@link WebSocketChat} (`/chat` page). */
+export const CHAT_WS_PATH = "/_worker/chat";
 
 /**
  * Edge-only logic before vinext and `/_vinext/image`.
@@ -30,6 +37,25 @@ async function handleCustomEdge(
   if (url.pathname === "/_worker/health") {
     return Response.json({ ok: true });
   }
+
+  if (url.pathname === CHAT_WS_PATH) {
+    const upgrade = request.headers.get("Upgrade");
+    if (!upgrade || upgrade !== "websocket") {
+      return new Response(
+        "Connect with a WebSocket client to this URL (Upgrade: websocket).",
+        {
+          status: 200,
+          headers: { "Content-Type": "text/plain; charset=utf-8" },
+        },
+      );
+    }
+    if (request.method !== "GET") {
+      return new Response("Expected GET", { status: 400 });
+    }
+    const stub = env.WEBSOCKET_CHAT.getByName("chat-room");
+    return stub.fetch(request);
+  }
+
   return null;
 }
 

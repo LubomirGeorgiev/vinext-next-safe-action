@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Suspense } from "react";
 import QueueTaskButton from "./QueueTaskButton";
 import SuspenseDelayTest from "./SuspenseDelayTest";
@@ -24,6 +25,12 @@ export default function Home() {
           <span className="hidden text-emerald-900/70 dark:text-emerald-100/70 sm:inline">
             App Router starter
           </span>
+          <Link
+            href="/chat"
+            className="ml-2 text-sm font-medium text-emerald-800 underline decoration-emerald-500/40 underline-offset-4 hover:text-emerald-950 dark:text-emerald-200 dark:hover:text-white"
+          >
+            Chat demo →
+          </Link>
         </div>
 
         <div className="mt-10 grid gap-5 lg:grid-cols-2">

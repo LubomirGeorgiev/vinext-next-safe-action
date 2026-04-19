@@ -14,6 +14,20 @@
   "images": {
     "binding": "IMAGES"
   },
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "WEBSOCKET_CHAT",
+        "class_name": "WebSocketChat"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "websocket-chat",
+      "new_classes": ["WebSocketChat"]
+    }
+  ],
   "queues": {
     "producers": [
       {
