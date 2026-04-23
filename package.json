@@ -9,6 +9,7 @@
     "lint": "eslint",
     "build:vinext": "vite build",
     "deploy": "vinext deploy",
+    "preview": "pnpm build && wrangler dev",
     "deploy:preview": "vinext deploy --preview",
     "cf:types": "wrangler types"
   },
