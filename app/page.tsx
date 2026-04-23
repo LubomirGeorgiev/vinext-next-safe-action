@@ -46,19 +46,22 @@ export default function Home() {
             </div>
 
             <div className="space-y-4">
-              <Suspense
-                fallback={
-                  <p
-                    className="w-full rounded-2xl border border-amber-500/30 bg-amber-50 px-4 py-3 text-sm text-amber-900 animate-pulse dark:border-amber-400/30 dark:bg-amber-950/30 dark:text-amber-100"
-                    role="status"
-                    aria-live="polite"
-                  >
-                    Suspense fallback: waiting for delayed promise (2s)...
-                  </p>
-                }
-              >
-                <SuspenseDelayTest />
-              </Suspense>
+              {([1000, 2500, 5000] as const).map((delayMs) => (
+                <Suspense
+                  key={delayMs}
+                  fallback={
+                    <p
+                      className="w-full rounded-2xl border border-amber-500/30 bg-amber-50 px-4 py-3 text-sm text-amber-900 animate-pulse dark:border-amber-400/30 dark:bg-amber-950/30 dark:text-amber-100"
+                      role="status"
+                      aria-live="polite"
+                    >
+                      Suspense fallback: waiting {delayMs}ms…
+                    </p>
+                  }
+                >
+                  <SuspenseDelayTest delayMs={delayMs} />
+                </Suspense>
+              ))}
 
               <QueueTaskButton />
             </div>

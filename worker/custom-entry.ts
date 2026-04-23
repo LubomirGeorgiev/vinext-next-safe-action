@@ -20,8 +20,8 @@ export { WebSocketChat };
 
 // Bindings: see `worker-configuration.d.ts` (run `pnpm cf:types` after changing wrangler.jsonc).
 
-/** WebSocket upgrade for {@link WebSocketChat} (`/chat` page). */
-export const CHAT_WS_PATH = "/_worker/chat";
+/** WebSocket upgrade for {@link WebSocketChat} (`/chat` page). Not exported — worker `main` may only export handlers and DO classes. */
+const CHAT_WS_PATH = "/_worker/chat";
 
 /**
  * Edge-only logic before vinext and `/_vinext/image`.
