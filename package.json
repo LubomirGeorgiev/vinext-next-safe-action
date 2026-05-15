@@ -16,26 +16,26 @@
   "dependencies": {
     "next": "^16.2.4",
     "next-safe-action": "^8.5.2",
-    "react": "19.2.5",
-    "react-dom": "19.2.5",
+    "react": "19.2.6",
+    "react-dom": "19.2.6",
     "zod": "^4.3.6"
   },
   "devDependencies": {
-    "@cloudflare/vite-plugin": "^1.33.1",
-    "@tailwindcss/postcss": "^4",
+    "@cloudflare/vite-plugin": "^1.37.0",
+    "@tailwindcss/postcss": "^4.2.4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@vitejs/plugin-react": "^6.0.1",
-    "@vitejs/plugin-rsc": "^0.5.24",
+    "@vitejs/plugin-rsc": "^0.5.26",
     "eslint": "^9",
     "eslint-config-next": "16.2.3",
-    "react-server-dom-webpack": "^19.2.5",
-    "tailwindcss": "^4",
+    "react-server-dom-webpack": "^19.2.6",
+    "tailwindcss": "^4.2.4",
     "typescript": "^5",
-    "vinext": "^0.0.43",
-    "vite": "^8.0.9",
-    "wrangler": "^4.84.1"
+    "vinext": "^0.0.50",
+    "vite": "^8.0.13",
+    "wrangler": "^4.90.1"
   },
   "type": "module"
 }
