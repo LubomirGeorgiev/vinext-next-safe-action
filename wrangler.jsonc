@@ -15,6 +15,13 @@
   "images": {
     "binding": "IMAGES"
   },
+  "observability": {
+    "enabled": true,
+    "logs": {
+      "enabled": true,
+      "invocation_logs": true
+    }
+  },
   "durable_objects": {
     "bindings": [
       {
@@ -26,7 +33,9 @@
   "migrations": [
     {
       "tag": "websocket-chat",
-      "new_classes": ["WebSocketChat"]
+      "new_classes": [
+        "WebSocketChat"
+      ]
     }
   ],
   "queues": {
@@ -43,5 +52,8 @@
         "max_batch_size": 10
       }
     ]
+  },
+  "placement": {
+    "mode": "smart"
   }
 }
